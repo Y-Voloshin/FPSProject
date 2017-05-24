@@ -1,0 +1,2 @@
+VGF is "Voloshin Game Framework"
+Here are stored the assets which I suppose to reuse in other projects

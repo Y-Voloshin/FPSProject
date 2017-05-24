@@ -1,0 +1,9 @@
+*.suo
+Library/il2cpp_cache/4DC3AA5D876DC0524EAFF326AD14DD41.o
+Library/AnnotationManager
+Library
+ProjectSettings
+Temp
+_Builds
+obj
+.vs
