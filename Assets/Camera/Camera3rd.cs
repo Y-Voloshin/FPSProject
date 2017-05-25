@@ -12,7 +12,6 @@ namespace FPSProject.Camera
         Transform pivot;
         Vector3 curPos;
         float PivotPlayerDist;
-        //bool intersects
 
         // Use this for initialization
         void Start()
@@ -28,34 +27,12 @@ namespace FPSProject.Camera
         // Update is called once per frame
         protected override void Update()
         {
-            /*
-            Vector3 ea = pivot.rotation.eulerAngles;
-            ea.x = myTransform.rotation.eulerAngles.x;
-            myTransform.rotation = Quaternion.Euler(ea);
-            */
             myTransform.rotation = pivot.rotation;
-
-            //myTransform.Translate(pivot.position - myTransform.position);
-            //myTransform.LookAt(pivot.position);
             myTransform.position = GetPosAvoidingWalls();
-
-            
-        }
-
-        /*
-        void MoveIfTooFar()
-        {
-            float distToPlayer = (Player.position - myTransform.position).magnitude;
-            if ( distToPlayer > PivotPlayerDist)
-            {
-                myTransform.position = pivot.position;
-            }
-        }
-        */
+        }        
 
         Vector3 GetPosAvoidingWalls()
         {
-            //var dir = Player.pos
             Ray r = new Ray(pivot.position + pivot.forward * PivotPlayerDist, -pivot.forward);
             RaycastHit hit;
             if (Physics.Raycast(r, out hit))

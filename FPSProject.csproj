@@ -159,6 +159,9 @@
     <Compile Include="Assets\NPC\Scripts\NPCController.cs" />
     <Compile Include="Assets\NPC\Scripts\NPCModel.cs" />
     <Compile Include="Assets\NPC\Scripts\Strategies\AbstractNPCStrategy.cs" />
+    <Compile Include="Assets\NPC\Scripts\Strategies\Enemy\IdleStrategy.cs" />
+    <Compile Include="Assets\NPC\Scripts\Strategies\Enemy\PatrolStrategy.cs" />
+    <Compile Include="Assets\NPC\Scripts\Strategies\Enemy\RandomWalkStrategy.cs" />
     <Compile Include="Assets\Scripts\FPSControllerCameraPivot.cs" />
     <Compile Include="Assets\VGF\Scripts\AbstractModel.cs" />
     <Compile Include="Assets\VGF\Scripts\CachedBehaviour.cs" />

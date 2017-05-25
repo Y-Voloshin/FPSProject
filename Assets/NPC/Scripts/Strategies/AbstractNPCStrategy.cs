@@ -25,7 +25,37 @@ namespace VGF.Action3d.NPC
         /// </summary>
         StrategyEventArgs deadArgs;
 
-        public void Init(NPCModel actorModel, Action<StrategyEventArgs> actorEventHandler,
+        public AbstractNPCStrategy()
+        {
+
+        }
+
+        public AbstractNPCStrategy(NPCModel actorModel, Action<StrategyEventArgs> actorEventHandler,
+            NPCState finishedState = NPCState.Idle, NPCState failedState = NPCState.Idle, NPCState deadState = NPCState.Dead)
+        {
+            Init(actorModel, actorEventHandler, finishedState, failedState, deadState);
+        }
+
+        public static AbstractNPCStrategy CreateStrategy<T>
+            (NPCModel actorModel, Action<StrategyEventArgs> actorEventHandler,
+            NPCState finishedState = NPCState.Idle, NPCState failedState = NPCState.Idle, NPCState deadState = NPCState.Dead) 
+            where T: AbstractNPCStrategy, new ()
+        {
+            var result = new T();
+            result.Init(actorModel, actorEventHandler, finishedState, failedState, deadState);
+            return result;
+        }
+
+
+        /// <summary>
+        /// Init function should be used in constructor
+        /// </summary>
+        /// <param name="actorModel"></param>
+        /// <param name="actorEventHandler"></param>
+        /// <param name="finishedState"></param>
+        /// <param name="failedState"></param>
+        /// <param name="deadState"></param>
+        protected void Init(NPCModel actorModel, Action<StrategyEventArgs> actorEventHandler,
             NPCState finishedState = NPCState.Idle, NPCState failedState = NPCState.Idle, NPCState deadState = NPCState.Dead)
         {
             finishedArgs = new StrategyEventArgs { NextState = finishedState };
@@ -33,13 +63,12 @@ namespace VGF.Action3d.NPC
             deadArgs = new StrategyEventArgs { NextState = deadState };
 
             OnFinished += actorEventHandler;
-
             SpecifiedInit(actorModel);
         }
 
         protected abstract void SpecifiedInit(NPCModel actorModel);
-        protected abstract void Start(StrategyEventArgs previousStrategyEventArgs = null);
-        protected abstract void UpdateExecute();
+        public abstract void Start(StrategyEventArgs previousStrategyEventArgs = null);
+        public abstract void UpdateExecute();
     }
 
     public class StrategyEventArgs
