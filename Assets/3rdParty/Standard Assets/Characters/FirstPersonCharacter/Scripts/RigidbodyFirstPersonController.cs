@@ -78,6 +78,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         public Camera cam;
+        //my code to replace camera transform with pivot transform
+        protected virtual Transform CamTransform
+        {
+            get { return cam.transform; }
+        }
+
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
@@ -118,15 +124,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void Start()
+        protected void Start()
         {
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
-            mouseLook.Init (transform, cam.transform);
+            mouseLook.Init (transform, CamTransform);
         }
 
 
-        private void Update()
+        protected void Update()
         {
             RotateView();
 
@@ -136,7 +142,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-
+        [SerializeField]
+        float RigidbodyGroundedDrag = 5;
         private void FixedUpdate()
         {
             GroundCheck();
@@ -160,7 +167,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (m_IsGrounded)
             {
-                m_RigidBody.drag = 5f;
+                m_RigidBody.drag = RigidbodyGroundedDrag;
 
                 if (m_Jump)
                 {
@@ -230,7 +237,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // get the rotation before it's changed
             float oldYRotation = transform.eulerAngles.y;
 
-            mouseLook.LookRotation (transform);
+            mouseLook.LookRotation (transform, CamTransform);
 
             if (m_IsGrounded || advancedSettings.airControl)
             {

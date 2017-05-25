@@ -156,6 +156,10 @@
     <Compile Include="Assets\3rdParty\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\3rdParty\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\Camera\Camera3rd.cs" />
+    <Compile Include="Assets\NPC\Scripts\NPCController.cs" />
+    <Compile Include="Assets\NPC\Scripts\NPCModel.cs" />
+    <Compile Include="Assets\NPC\Scripts\Strategies\AbstractNPCStrategy.cs" />
+    <Compile Include="Assets\Scripts\FPSControllerCameraPivot.cs" />
     <Compile Include="Assets\VGF\Scripts\AbstractModel.cs" />
     <Compile Include="Assets\VGF\Scripts\CachedBehaviour.cs" />
     <Compile Include="Assets\VGF\Scripts\Debug\DebugLabel.cs" />

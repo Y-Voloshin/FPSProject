@@ -28,9 +28,13 @@ namespace FPSProject.Camera
         // Update is called once per frame
         protected override void Update()
         {
+            /*
             Vector3 ea = pivot.rotation.eulerAngles;
             ea.x = myTransform.rotation.eulerAngles.x;
             myTransform.rotation = Quaternion.Euler(ea);
+            */
+            myTransform.rotation = pivot.rotation;
+
             //myTransform.Translate(pivot.position - myTransform.position);
             //myTransform.LookAt(pivot.position);
             myTransform.position = GetPosAvoidingWalls();
