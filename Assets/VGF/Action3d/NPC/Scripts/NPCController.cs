@@ -5,12 +5,11 @@ using UnityEngine;
 using VGF.Action3d.Level;
 
 namespace VGF.Action3d.NPC
-{   
-
+{
     /// <summary>
     /// Abstract class, parent of any NPC behaviour
     /// </summary>
-    public abstract class NPCController : CachedBehaviour, INPCController
+    public abstract class NPCController : AbstractAliveController, INPCController
     {
         protected Dictionary<NPCState, AbstractNPCStrategy> Strategies;
 
@@ -24,30 +23,43 @@ namespace VGF.Action3d.NPC
 
         bool strategyForCurrentStateExists = false;
         [SerializeField]
-        NPCModel model;
+        NPCModel npcModel;
+
+        #region some settings, put them somewhere else
+        float detectDistance = 15, 
+            detectAngle = 50, 
+            detectAnywayDistance = 5;
+        #endregion
+        Transform TargetTransform;
 
         // Use this for initialization
         void Start()
         {
-            if (model == null)
-                model = new NPCModel(this);
-            else
-                model.Init(this);
-
-            CreateStrategies();
-            if (SetFirstStateFromCode)
-                SetFirstState();
-            SwitchState(currentState);
+            InitNPCModel();
+            TargetTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            Debug.Log(TargetTransform);
         }
         // Update is called once per frame
         void Update()
         {
             //Caching pos in model so it's easy to get it multiple times per frame
-            model.CurrentPoition = myTransform.position;
+            npcModel.CurrentPoition = myTransform.position;
 
             if (strategyForCurrentStateExists)
-                Strategies[currentState].Update();
-            
+                Strategies[currentState].Update();            
+        }
+
+        protected virtual void InitNPCModel()
+        {
+            if (npcModel == null)
+                npcModel = new NPCModel(this);
+            else
+                npcModel.Init(this);
+
+            CreateStrategies();
+            if (SetFirstStateFromCode)
+                SetFirstState();
+            SwitchState(currentState);
         }
 
         /// <summary>
@@ -76,7 +88,7 @@ namespace VGF.Action3d.NPC
                     return;
                 }
             }
-            Strategies.Add(strategyState, AbstractNPCStrategy.CreateStrategy<T>(this, model, finishedState, failedState, deadState));
+            Strategies.Add(strategyState, AbstractNPCStrategy.CreateStrategy<T>(this, npcModel, finishedState, failedState, deadState));
         }
 
         void SwitchState(NPCState state)
@@ -95,6 +107,8 @@ namespace VGF.Action3d.NPC
         {
             currentState = previousStrategyEventArgs == null ?
                 NPCState.Idle : previousStrategyEventArgs.NextState;
+            Debug.Log(currentState);
+
             strategyForCurrentStateExists = Strategies != null
                 && Strategies.Count > 0
                 && Strategies.ContainsKey(currentState)
@@ -106,12 +120,49 @@ namespace VGF.Action3d.NPC
         public void GoToRandomPoint()
         {
             if (myNavMeshAgent)
-                myNavMeshAgent.SetDestination(LevelBoundsBehaviour.GetPointWithinBounds(myTransform.position, model.RandomWalkRange));
+                myNavMeshAgent.SetDestination(LevelBoundsBehaviour.GetPointWithinBounds(myTransform.position, myTransform.forward, 0.5f, npcModel.RandomWalkRange));
         }
 
         public bool HasPath()
         {
-            return myNavMeshAgent.hasPath;
+            return myNavMeshAgent && myNavMeshAgent.hasPath;
         }
+
+        public bool SeeTarget()
+        {
+            if (TargetTransform == null)
+                return false;
+            Vector3 tPos = TargetTransform.position;
+            Vector3 vectorToTarget = tPos - npcModel.CurrentPoition;
+            //tPos += vectorToTarget.normalized * 3;
+            float dist = Vector3.Distance(tPos, npcModel.CurrentPoition);
+            if (dist <= detectAnywayDistance
+                || (dist <= detectDistance && Vector3.Angle(myTransform.forward, vectorToTarget) <= detectAngle))
+            {
+                RaycastHit hit;
+
+                //Magic code: just cast ray from one unit away from center
+                //TODO: fix, use LayerMask
+                if (Physics.Raycast(npcModel.CurrentPoition + vectorToTarget.normalized, vectorToTarget, out hit, dist))
+                {
+                    if (hit.transform.name == "LegTop")
+                        Debug.DrawRay(npcModel.CurrentPoition, vectorToTarget, Color.red, 20f);
+
+
+                    Debug.Log(hit.transform);
+                    return hit.transform == TargetTransform;
+                }
+            }
+
+            return false;
+        }
+
+        public void Stop()
+        {
+            if (myNavMeshAgent)
+                myNavMeshAgent.ResetPath();
+        }
+
+        public abstract void InteractWithTarget();
     }
 }

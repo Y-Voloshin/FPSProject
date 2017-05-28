@@ -23,6 +23,10 @@ namespace VGF.Action3d.NPC.Common
 
         protected override void UpdateLogic()
         {
+            if (ownerNPC.SeeTarget())
+            {
+                ownerNPC.SwitchState(deadArgs);
+            }
             //Put checck enemy visibility here
             // also a common stuff
             if (!ownerNPC.HasPath())

@@ -3,14 +3,14 @@
 /// </summary>
 namespace VGF
 {    
-    [System.Serializable]
-    public abstract class AbstractModel<T> where T : AbstractModel<T>, new()
+    //[System.Serializable]
+    public interface AbstractModel<T> where T : AbstractModel<T>, new()
     {
         /// <summary>
         /// Copy fields from target
         /// </summary>
         /// <param name="model">Source model</param>
-        public abstract void SetValues(T model);
+        void SetValues(T model);
             
     }
 

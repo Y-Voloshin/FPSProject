@@ -11,9 +11,13 @@ namespace VGF.Action3d.NPC
     /// </summary>
     public interface INPCController
     {
-
+        //void Init();
         void GoToRandomPoint();
         void SwitchState(StrategyEventArgs previousStrategyEventArgs);
         bool HasPath();
+        void Stop();
+        void InteractWithTarget();
+        bool SeeTarget();
+        //bool Die();
     }
 }

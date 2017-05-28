@@ -8,7 +8,7 @@ namespace VGF
     /// Controller for abstract models, providing save, load, reset model
     /// </summary>
     /// <typeparam name="T">AbstractModel child type</typeparam>
-    public class GenericModelBehaviour<T> : SaveLoadBehaviour where T : AbstractModel<T>, new()
+    public class GenericModelBehaviour<T> : SaveLoadBehaviour where T: AbstractModel<T>, new()
     {
         [SerializeField]
         protected T InitModel;
