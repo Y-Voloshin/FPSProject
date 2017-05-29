@@ -45,7 +45,7 @@ namespace VGF.Action3d.Weapon
 
         public ProjectileBullet CreateBullet()
         {
-            return Instantiate(BulletPrefab);
+            return Instantiate(BulletPrefab, ProjectileStorage);
         }
 
         public override void Push()
@@ -54,7 +54,7 @@ namespace VGF.Action3d.Weapon
             while (b == null && InactiveBullets.Count > 0)
                 b = InactiveBullets.Dequeue();
             if (b == null)
-                b = Instantiate(BulletPrefab);
+                b = CreateBullet();
 
             ActiveBullets.Add(b);
             b.Push(myTransform.position, myTransform.rotation);
