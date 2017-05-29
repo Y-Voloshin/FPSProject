@@ -1,2 +1,6 @@
 VGF is "Voloshin Game Framework"
 Here are stored the assets which I suppose to reuse in other projects
+
+In CrossPlatform folder there are scripts that UnityEngine-free and can be compiled in dll and used anywhere
+In UnityRealization folder there are scripts that use UnityEngine classes
+

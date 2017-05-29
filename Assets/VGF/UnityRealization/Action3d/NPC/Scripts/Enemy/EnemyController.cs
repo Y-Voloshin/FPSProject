@@ -10,7 +10,7 @@ namespace VGF.Action3d.NPC.Enemy
     public class EnemyController : NPCController
     {
         [SerializeField]
-        WeaponController Weapon;
+        WeaponControllerUnity Weapon;
         protected override void InitNPCModel()
         {
             base.InitNPCModel();

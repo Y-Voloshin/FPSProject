@@ -7,6 +7,7 @@ namespace VGF.Action3d
 {
     public abstract class AbstractAliveController : GenericModelBehaviour<AliveModelTransform>, IAlive
     {
+        //TODO: create separate unity implementation where put all the [SerializeField] attributes
         [SerializeField]
         bool Immortal;
         [SerializeField]

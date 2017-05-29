@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace VGF.Action3d.Weapon
 {
@@ -9,13 +7,12 @@ namespace VGF.Action3d.Weapon
     public class WeaponController: IWeaponController
     {
         bool HasWeapon = false;
-
-        [SerializeField]
-        List<IWeaponModel> Weapons;
+        
+        protected List<IWeaponModel> Weapons;
         IWeaponModel CurrentWeapon;//Cache current weapon for not asking the list every time
         int currentWeaponId;
 
-        public void Init()
+        public virtual void Init()
         {
             HasWeapon = Weapons != null && Weapons.Count > 0 && Weapons[0] != null;
 

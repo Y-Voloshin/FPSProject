@@ -36,6 +36,8 @@ namespace VGF.Action3d.Level
             Ymax = pos.y + halfScale.y;
             ZMin = pos.z - halfScale.z;
             ZMax = pos.z + halfScale.z;
+
+            //Debug.Log(GetPointWithinBounds(transform.position, 5));
         }
 
         /// <summary>
@@ -65,7 +67,7 @@ namespace VGF.Action3d.Level
                         if (!instance.PointIsOutOfBorders(randomPoint))
                         {
                             NavMeshHit hit;
-                            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+                            if (NavMesh.SamplePosition(randomPoint, out hit, 2.0f, NavMesh.AllAreas))
                             {
                                 return hit.position;
                             }
@@ -105,10 +107,13 @@ namespace VGF.Action3d.Level
                         if (!instance.PointIsOutOfBorders(randomPoint))
                         {
                             NavMeshHit hit;
-                            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+                            //NavMeshDataInstance
+                            if (NavMesh.SamplePosition(randomPoint, out hit, 2.0f, NavMesh.AllAreas))
                             {
                                 return hit.position;
                             }
+                            else
+                                Debug.Log(hit.position);
                         }
                     }
                 }

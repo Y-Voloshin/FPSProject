@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-using VGF.Action3d.Level;
-
-namespace VGF.Action3d.NPC.Common
+﻿namespace VGF.Action3d.NPC.Common
 {
     public class RandomWalkStrategy : AbstractNPCStrategy
     {

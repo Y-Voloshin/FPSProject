@@ -9,16 +9,15 @@ namespace VGF.Action3d.NPC
     {
         public float RandomWalkRange = 30;
         
-        public float DetectionDistance = 10;
-        public float DetectionAngle = 45;
+        public float DetectionDistance = 25;
+        public float DetectionAngle = 50;
+        public float DetectAnywayDistance = 10;
         #region
-        //public Transform myTransform;
         [HideInInspector]
-        public UnityEngine.AI.NavMeshAgent NavMeshAgent;
-        [HideInInspector]
-        public Vector3 CurrentPoition;
+        public Vector3 CurrentPosition;
         #endregion
 
+        public NPCModel() { }
         
         public NPCModel(MonoBehaviour controller)
         {
@@ -27,9 +26,7 @@ namespace VGF.Action3d.NPC
 
         public void Init(MonoBehaviour controller)
         {
-            NavMeshAgent = controller.GetComponent<UnityEngine.AI.NavMeshAgent>();
-            //myTransform = controller.GetComponent<Transform>();
-            CurrentPoition = controller.GetComponent<Transform>().position;
+            CurrentPosition = controller.GetComponent<Transform>().position;
         }
     }
 

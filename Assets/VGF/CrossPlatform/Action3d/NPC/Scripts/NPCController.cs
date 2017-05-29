@@ -37,13 +37,13 @@ namespace VGF.Action3d.NPC
         {
             InitNPCModel();
             TargetTransform = GameObject.FindGameObjectWithTag("Player").transform;
-            Debug.Log(TargetTransform);
+            //Debug.Log(TargetTransform);
         }
         // Update is called once per frame
         void Update()
         {
             //Caching pos in model so it's easy to get it multiple times per frame
-            npcModel.CurrentPoition = myTransform.position;
+            npcModel.CurrentPosition = myTransform.position;
 
             if (strategyForCurrentStateExists)
                 Strategies[currentState].Update();            
@@ -133,9 +133,9 @@ namespace VGF.Action3d.NPC
             if (TargetTransform == null)
                 return false;
             Vector3 tPos = TargetTransform.position;
-            Vector3 vectorToTarget = tPos - npcModel.CurrentPoition;
+            Vector3 vectorToTarget = tPos - npcModel.CurrentPosition;
             //tPos += vectorToTarget.normalized * 3;
-            float dist = Vector3.Distance(tPos, npcModel.CurrentPoition);
+            float dist = Vector3.Distance(tPos, npcModel.CurrentPosition);
             if (dist <= detectAnywayDistance
                 || (dist <= detectDistance && Vector3.Angle(myTransform.forward, vectorToTarget) <= detectAngle))
             {
@@ -143,10 +143,10 @@ namespace VGF.Action3d.NPC
 
                 //Magic code: just cast ray from one unit away from center
                 //TODO: fix, use LayerMask
-                if (Physics.Raycast(npcModel.CurrentPoition + vectorToTarget.normalized, vectorToTarget, out hit, dist))
+                if (Physics.Raycast(npcModel.CurrentPosition + vectorToTarget.normalized, vectorToTarget, out hit, dist))
                 {
                     if (hit.transform.name == "LegTop")
-                        Debug.DrawRay(npcModel.CurrentPoition, vectorToTarget, Color.red, 20f);
+                        Debug.DrawRay(npcModel.CurrentPosition, vectorToTarget, Color.red, 20f);
 
 
                     Debug.Log(hit.transform);
