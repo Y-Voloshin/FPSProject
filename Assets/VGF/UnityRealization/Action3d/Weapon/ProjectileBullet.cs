@@ -11,7 +11,7 @@ namespace VGF.Action3d.Weapon
         float Speed = 4,
             Lifetime = 5;
 
-        Vector3 currentForward;
+        Vector3 TranslateVector;
         bool active;
         float curLifeTime;
 
@@ -31,7 +31,8 @@ namespace VGF.Action3d.Weapon
                 return;
             }
             float dt = Time.deltaTime;
-            myTransform.Translate(currentForward * dt);
+            //myTransform.position += TranslateVector * dt;
+            myTransform.Translate(TranslateVector * dt);
             curLifeTime += dt;
         }
 
@@ -49,9 +50,12 @@ namespace VGF.Action3d.Weapon
 
         public override void Push(Vector3 startPosition, Quaternion startRotation)
         {
-            myTransform.position = startPosition;
             myTransform.rotation = startRotation;
-            currentForward = myTransform.forward * Speed;
+            myTransform.position = startPosition;
+            
+            TranslateVector = new Vector3 (0, 0, Speed);
+            //currentForward = 
+
             active = true;
             curLifeTime = 0;
             myGO.SetActive(true);
