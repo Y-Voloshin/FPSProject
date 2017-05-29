@@ -15,8 +15,11 @@ namespace VGF.Action3d.Weapon
         void SwitchNext();
     }
     
+    //TODO: remake it as abstract class
+    //[System.Serializable]
     public interface IWeaponModel
     {
+
         /// <summary>
         /// In Unity a WeaponModel is a ScriptableObject and needs to be instantiated.
         /// Maybe in other game engines there's something similar.

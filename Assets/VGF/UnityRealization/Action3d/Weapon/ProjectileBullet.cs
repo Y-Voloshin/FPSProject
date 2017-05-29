@@ -18,6 +18,11 @@ namespace VGF.Action3d.Weapon
         // Update is called once per frame
         void Update()
         {
+            MoveIfActive();
+        }
+
+        void MoveIfActive()
+        {
             if (!active)
                 return;
             if (curLifeTime > Lifetime)

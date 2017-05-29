@@ -7,6 +7,7 @@ namespace VGF.Action3d.Weapon
     //TODO: think how to separate this from MonoBehaviour
     public abstract class AbstractBullet : CachedBehaviour
     {
+        [SerializeField]
         int damage;
 
         public abstract void Push(Vector3 startPosition, Quaternion startRotation);

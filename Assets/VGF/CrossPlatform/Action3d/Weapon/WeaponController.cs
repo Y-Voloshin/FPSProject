@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace VGF.Action3d.Weapon
 {
     [Serializable]
-    public class WeaponController: IWeaponController
+    public abstract class WeaponController: IWeaponController
     {
         bool HasWeapon = false;
         
         protected List<IWeaponModel> Weapons;
-        IWeaponModel CurrentWeapon;//Cache current weapon for not asking the list every time
+        protected IWeaponModel CurrentWeaponInterface;//Cache current weapon for not asking the list every time
         int currentWeaponId;
 
         public virtual void Init()
@@ -32,39 +32,41 @@ namespace VGF.Action3d.Weapon
                 setCurrent = true;
                 HasWeapon = true;
             }
+            //TODO: and then? if setcurrent?
         }
 
         /// <summary>
         /// We do it on game start
         /// </summary>
-        void SwitchFirst()
+        protected void SwitchFirst()
         {
             if (!HasWeapon)
                 return;
             currentWeaponId = 0;
-            CurrentWeapon = Weapons[currentWeaponId];
+            CurrentWeaponInterface = Weapons[currentWeaponId];
+            CacheCurrentWeapon();
         }
 
-        public void SwitchNext()
+        public virtual void SwitchNext()
         {
             if (!HasWeapon)
                 return;
             currentWeaponId++;
             if (currentWeaponId >= Weapons.Count)
                 currentWeaponId = 0;
-            CurrentWeapon = Weapons[currentWeaponId];
+            CurrentWeaponInterface = Weapons[currentWeaponId];
+            CacheCurrentWeapon();
         }
 
-        public void TryShoot()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void TryShoot();
+        protected abstract void CacheCurrentWeapon();
 
         public void RemoveAll()
         {
             Weapons.Clear();
-            CurrentWeapon = null;
+            CurrentWeaponInterface = null;
             HasWeapon = false;
+            CacheCurrentWeapon();
         }
 
         public void RemoveCurrent()

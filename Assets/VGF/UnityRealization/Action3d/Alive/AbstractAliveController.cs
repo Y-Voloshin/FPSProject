@@ -10,10 +10,12 @@ namespace VGF.Action3d
         //TODO: create separate unity implementation where put all the [SerializeField] attributes
         [SerializeField]
         bool Immortal;
+
+        /*
         [SerializeField]
         int HealthBasic,
             HealthCurrent;
-
+*/
         static Dictionary<Transform, AbstractAliveController> All = new Dictionary<Transform, AbstractAliveController>();
         public static bool GetAliveControllerForTransform(Transform tr, out AbstractAliveController aliveController)
         {

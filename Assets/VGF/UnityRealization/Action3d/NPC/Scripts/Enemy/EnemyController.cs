@@ -14,7 +14,8 @@ namespace VGF.Action3d.NPC.Enemy
         protected override void InitNPCModel()
         {
             base.InitNPCModel();
-            Weapon.Init();
+            if (Weapon != null)
+                Weapon.Init(myTransform);
         }
 
         public override void InteractWithTarget()

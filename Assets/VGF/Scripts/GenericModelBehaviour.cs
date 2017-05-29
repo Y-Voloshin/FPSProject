@@ -12,7 +12,7 @@ namespace VGF
     {
         [SerializeField]
         protected T InitModel;
-        [SerializeField]
+        //[SerializeField]
         protected T CurrentModel, SavedModel;
 
         protected override void Awake()

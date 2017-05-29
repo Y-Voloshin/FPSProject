@@ -4,12 +4,17 @@ using UnityEngine;
 
 namespace VGF.Action3d.Weapon
 {
-    [System.Serializable]
+    [CreateAssetMenu(menuName = "Weapon")]
+    //[System.Serializable]
     public class WeaponModel : ScriptableObject, IWeaponModel
     {
+        //[SerializeField]
+        public AbstractBulletProducer BulletProducer;
         public IWeaponModel Init()
         {
-            return Instantiate(this);
+            var result = Instantiate(this);
+            result.BulletProducer = Instantiate(BulletProducer);
+            return result;
         }
     }
 }
