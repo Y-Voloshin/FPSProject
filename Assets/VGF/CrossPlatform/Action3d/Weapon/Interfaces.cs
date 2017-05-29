@@ -25,4 +25,11 @@ namespace VGF.Action3d.Weapon
         /// <returns>Initialized weapon model</returns>
         IWeaponModel Init();
     }
+
+    public interface IBulletProducer
+    {
+
+    }
+
+    //public 
 }

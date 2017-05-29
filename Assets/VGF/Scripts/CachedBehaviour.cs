@@ -7,13 +7,21 @@ namespace VGF
 {
     public class CachedBehaviour : MonoBehaviour
     {
+        /*
         public Transform myTransform { get; protected set; }
         public NavMeshAgent myNavMeshAgent { get; protected set; }
+        public GameObject myGO { get; protected set; }
+        //*/
+
+        protected Transform myTransform;
+        protected NavMeshAgent myNavMeshAgent;
+        protected GameObject myGO;
 
         protected virtual void Awake()
         {
             myTransform = transform;
             myNavMeshAgent = GetComponent<NavMeshAgent>();
+            myGO = gameObject;
         }
     }
 }

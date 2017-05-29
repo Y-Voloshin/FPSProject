@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace VGF.Action3d.NPC
+﻿namespace VGF.Action3d.NPC
 {
     //This interface allows to write engine-independent strategies.
     //All the pathfinding, hide/destroy/respawn, Vector3 and any other engine-driven code can be hiddent from strategy.

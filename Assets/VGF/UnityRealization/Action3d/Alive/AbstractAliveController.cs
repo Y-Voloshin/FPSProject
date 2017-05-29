@@ -14,11 +14,25 @@ namespace VGF.Action3d
         int HealthBasic,
             HealthCurrent;
 
+        static Dictionary<Transform, AbstractAliveController> All = new Dictionary<Transform, AbstractAliveController>();
+        public static bool GetAliveControllerForTransform(Transform tr, out AbstractAliveController aliveController)
+        {
+            return All.TryGetValue(tr, out aliveController);
+        }
+
+        DamageableController[] BodyParts;
+        
+
         protected override void Init()
         {
             InitModel.Position = myTransform.position;
             InitModel.Rotation = myTransform.rotation;
             base.Init();
+
+            All.Add(myTransform, this);
+            BodyParts = GetComponentsInChildren<DamageableController>();
+            foreach (var bp in BodyParts)
+                bp.OnDamageTaken += TakeDamage;
         }
 
         protected override void Save()
@@ -62,5 +76,20 @@ namespace VGF.Action3d
 
         protected abstract void Die();
 
+    }
+
+    public static class AliveControllerExtensions
+    {
+        /* This method can be realized different ways.
+         * 1) call transform.getcomponent
+         * 
+         * 2) my way:
+         * - create static dictionary AliveController.All <Transform, AliveController>
+         * - check if this dict contains hitted transform
+        */
+        public static bool TryGetAliveComponent (this Transform tr, out AbstractAliveController alive)
+        {
+            return AbstractAliveController.GetAliveControllerForTransform(tr, out alive);
+        }
     }
 }

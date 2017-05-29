@@ -18,7 +18,7 @@ namespace VGF
         /// <summary>
         /// Collection that stores all SaveLoad classes in purpose of providing auto registration and collective save and load
         /// </summary>
-        static List<SaveLoadBehaviour> All = new List<SaveLoadBehaviour>();
+        static List<SaveLoadBehaviour> AllSaveLoadObjects = new List<SaveLoadBehaviour>();
 
         protected override void Awake()
         {
@@ -28,17 +28,17 @@ namespace VGF
 
         static void Add(SaveLoadBehaviour item)
         {
-            if (All.Contains(item))
+            if (AllSaveLoadObjects.Contains(item))
             {
                 Debug.LogError(item + "  element is already in All list");
             }
             else
-                All.Add(item);
+                AllSaveLoadObjects.Add(item);
         }
 
         public static void LoadAll()
         {
-            foreach (var item in All)
+            foreach (var item in AllSaveLoadObjects)
             {
                 if (item == null)
                 {
@@ -52,8 +52,8 @@ namespace VGF
 
         public static void SaveAll()
         {
-            Debug.Log(All.Count);
-            foreach (var item in All)
+            Debug.Log(AllSaveLoadObjects.Count);
+            foreach (var item in AllSaveLoadObjects)
             {
                 if (item == null)
                 {
@@ -67,7 +67,7 @@ namespace VGF
 
         public static void LoadInitAll()
         {
-            foreach (var item in All)
+            foreach (var item in AllSaveLoadObjects)
             {
                 if (item == null)
                 {

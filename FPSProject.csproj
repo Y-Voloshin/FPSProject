@@ -157,12 +157,9 @@
     <Compile Include="Assets\3rdParty\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\Camera\Camera3rd.cs" />
     <Compile Include="Assets\Scripts\FPSControllerCameraPivot.cs" />
-    <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\AbstractAliveController.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\AliveModelBasic.cs" />
-    <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\AliveModelTransform.cs" />
-    <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\IAlive.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\Interfaces.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Level\LevelBoundsBehaviour.cs" />
-    <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\AbstractBullet.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\AbstractNPCStrategy.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\Common\RandomWalkStrategy.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\Enemy\Strategies\IdleStrategy.cs" />
@@ -170,10 +167,8 @@
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\INPCController.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\NPCController.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\NPCModel.cs" />
-    <Compile Include="Assets\VGF\CrossPlatform\Action3d\Weapon\AbstractClasses.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Weapon\Interfaces.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Weapon\WeaponController.cs" />
-    <Compile Include="Assets\VGF\CrossPlatform\Action3d\Weapon\WeaponModel.cs" />
     <Compile Include="Assets\VGF\Scripts\AbstractModel.cs" />
     <Compile Include="Assets\VGF\Scripts\CachedBehaviour.cs" />
     <Compile Include="Assets\VGF\Scripts\Debug\DebugLabel.cs" />
@@ -182,8 +177,18 @@
     <Compile Include="Assets\VGF\Scripts\SaveLoadBehaviour.cs" />
     <Compile Include="Assets\VGF\Scripts\UI\LabelValueGroup.cs" />
     <Compile Include="Assets\VGF\Scripts\UI\UnityUIExtensions.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Alive\AbstractAliveController.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Alive\AliveModelTransform.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Alive\DamageableController.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\NPC\Scripts\Enemy\EnemyController.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\AbstractBullet.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\AbstractBulletProducer.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\ProjectileBullet.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\ProjectileBulletProducer.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\RaycastBullet.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\RaycastBulletProducer.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\WeaponControllerUnity.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\WeaponModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />

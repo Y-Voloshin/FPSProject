@@ -100,12 +100,10 @@ namespace VGF.Action3d.NPC
         protected abstract void UpdateLogic();
         protected virtual void StartFailLogic(StrategyEventArgs previousStrategyEventArgs = null)
         {
-            Debug.Log("Logic start failed");
             ownerNPC.SwitchState(StrategyEventArgs.SimpleIdle);
         }
         protected virtual void UpdateFailLogic()
         {
-            Debug.Log("Logic update failed");
             ownerNPC.SwitchState(StrategyEventArgs.SimpleIdle);
         }
 
