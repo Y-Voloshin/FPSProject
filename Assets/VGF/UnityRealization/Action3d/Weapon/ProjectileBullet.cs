@@ -15,10 +15,15 @@ namespace VGF.Action3d.Weapon
         bool active;
         float curLifeTime;
 
+        private void Start()
+        {
+            //GetComponent<Collider>().isTrigger = true;
+        }
+
         // Update is called once per frame
         void Update()
         {
-            MoveIfActive();
+            //MoveIfActive();
         }
 
         void MoveIfActive()
@@ -31,19 +36,28 @@ namespace VGF.Action3d.Weapon
                 return;
             }
             float dt = Time.deltaTime;
-            //myTransform.position += TranslateVector * dt;
-            myTransform.Translate(TranslateVector * dt);
+            myTransform.position += myTransform.forward * Speed * dt;
+            //myTransform.Translate(TranslateVector * dt);
             curLifeTime += dt;
         }
 
+        
         void OnCollisionEnter(Collision collision)
         {
             TryGiveDamage(collision.transform);
             Deactivate();
         }
+        
+
+        private void OnTriggerEnter(Collider other)
+        {
+            TryGiveDamage(other.transform);
+            Deactivate();
+        }
 
         void Deactivate()
         {
+            //myRigidbody.velocity = new Vector3()
             active = false;
             myGO.SetActive(false);
         }
@@ -53,9 +67,7 @@ namespace VGF.Action3d.Weapon
             myTransform.rotation = startRotation;
             myTransform.position = startPosition;
             
-            TranslateVector = new Vector3 (0, 0, Speed);
-            //currentForward = 
-
+            myRigidbody.velocity = myTransform.forward * Speed;
             active = true;
             curLifeTime = 0;
             myGO.SetActive(true);

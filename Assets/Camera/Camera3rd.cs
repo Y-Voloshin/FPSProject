@@ -37,20 +37,16 @@ namespace FPSProject.Camera
             RaycastHit hit;
             if (Physics.Raycast(r, out hit))
             {
-                VGF.DebugTools.DebugLabel.ShowValue(hit.transform.gameObject.name);
                 if (hit.distance < Vector3.Distance(pivot.position, Player.position))
                 {
-                    VGF.DebugTools.DebugLabel.ShowValue(hit.transform.gameObject.name, 1);
                     return hit.point + pivot.forward * 0.2f + pivot.up * 0.2f;
                 }
                 else
                 {
-                    VGF.DebugTools.DebugLabel.ShowValue(string.Empty, 1);
                 }
             }
             else
             {
-                VGF.DebugTools.DebugLabel.ShowValue(string.Empty);
             }
             return pivot.position;
         }

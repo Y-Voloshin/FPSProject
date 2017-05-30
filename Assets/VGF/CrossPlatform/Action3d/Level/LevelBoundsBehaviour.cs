@@ -112,8 +112,8 @@ namespace VGF.Action3d.Level
                             {
                                 return hit.position;
                             }
-                            else
-                                Debug.Log(hit.position);
+                            //else
+                            //    Debug.Log(hit.position);
                         }
                     }
                 }

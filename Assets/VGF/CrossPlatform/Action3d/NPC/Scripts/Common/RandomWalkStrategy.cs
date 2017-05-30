@@ -18,7 +18,7 @@
         {
             if (ownerNPC.SeeTarget())
             {
-                ownerNPC.SwitchState(deadArgs);
+                //ownerNPC.SwitchState(deadArgs);
             }
             //Put checck enemy visibility here
             // also a common stuff

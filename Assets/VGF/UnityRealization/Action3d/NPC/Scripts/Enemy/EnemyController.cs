@@ -26,6 +26,7 @@ namespace VGF.Action3d.NPC.Enemy
         protected override void CreateStrategies()
         {
             CreateStrategy<RandomWalkStrategy>(NPCState.RandomWalk);
+            CreateStrategy<DeadStrategySwitchOff>(NPCState.Dead);
         }
 
         protected override void SetFirstState()
@@ -36,8 +37,8 @@ namespace VGF.Action3d.NPC.Enemy
         protected override void Die()
         {
             currentState = NPCState.Dead;
-            Debug.Log("Die");
-            Stop();
+            //Debug.Log("Die");
+            //Stop();
         }
     }
 }

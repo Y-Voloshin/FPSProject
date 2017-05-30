@@ -145,11 +145,11 @@ namespace VGF.Action3d.NPC
                 //TODO: fix, use LayerMask
                 if (Physics.Raycast(npcModel.CurrentPosition + vectorToTarget.normalized, vectorToTarget, out hit, dist))
                 {
-                    if (hit.transform.name == "LegTop")
-                        Debug.DrawRay(npcModel.CurrentPosition, vectorToTarget, Color.red, 20f);
+                    //if (hit.transform.name == "LegTop")
+                    //    Debug.DrawRay(npcModel.CurrentPosition, vectorToTarget, Color.red, 20f);
 
 
-                    Debug.Log(hit.transform);
+                    //Debug.Log(hit.transform);
                     return hit.transform == TargetTransform;
                 }
             }

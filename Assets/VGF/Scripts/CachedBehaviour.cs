@@ -16,12 +16,16 @@ namespace VGF
         protected Transform myTransform;
         protected NavMeshAgent myNavMeshAgent;
         protected GameObject myGO;
+        protected Rigidbody myRigidbody;
+        protected Collider myCollider;
 
         protected virtual void Awake()
         {
             myTransform = transform;
             myNavMeshAgent = GetComponent<NavMeshAgent>();
             myGO = gameObject;
+            myRigidbody = GetComponent<Rigidbody>();
+            myCollider = GetComponent<Collider>();
         }
     }
 }
