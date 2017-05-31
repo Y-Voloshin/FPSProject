@@ -6,11 +6,11 @@ namespace VGF.Action3d.Weapon
     [Serializable]
     public abstract class WeaponController: IWeaponController
     {
-        bool HasWeapon = false;
+        protected bool HasWeapon = false;
         
         protected List<IWeaponModel> Weapons;
         protected IWeaponModel CurrentWeaponInterface;//Cache current weapon for not asking the list every time
-        int currentWeaponId;
+        protected int currentWeaponId;
 
         public virtual void Init()
         {

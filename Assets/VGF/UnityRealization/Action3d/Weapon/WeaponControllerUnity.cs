@@ -12,15 +12,19 @@ namespace VGF.Action3d.Weapon
         /// </summary>
         [SerializeField]
         List<WeaponModel> WeaponsForInspector;
+        List<WeaponView> WeaponViews = new List<WeaponView>();
         WeaponModel CurrentWeaponModel;
+        WeaponView CurrentWeaponView;
         //[SerializeField]
         AbstractBulletProducer BulletProducer;
-        Transform OwnerTransform;
+        Transform OwnerTransform,
+            ViewOwnerTransform;
 
 
-        public void Init(Transform ownerTransform)
+        public void Init(Transform ownerTransform, Transform viewOwnerTransform)
         {
             OwnerTransform = ownerTransform;
+            ViewOwnerTransform = viewOwnerTransform;
             Init();
         }
 
@@ -33,7 +37,19 @@ namespace VGF.Action3d.Weapon
             if (WeaponsForInspector != null)
                 Weapons = new List<IWeaponModel>();
             foreach (var w in WeaponsForInspector)
+            {
                 Weapons.Add(w);
+                var v = w.GetView();
+                if (v)
+                {
+                    WeaponViews.Add(v);
+                    if (ViewOwnerTransform)
+                    {
+                        v.OrientAndAttach(ViewOwnerTransform);
+                    }
+                    v.Hide();
+                }
+            }
             
             base.Init();
         }
@@ -45,23 +61,28 @@ namespace VGF.Action3d.Weapon
             if (BulletProducer == null)
                 return;
             BulletProducer.Push();
-
+            if (CurrentWeaponView)
+                CurrentWeaponView.Shoot();
         }
 
         protected override void CacheCurrentWeapon()
         {
-            CurrentWeaponModel = CurrentWeaponInterface as WeaponModel;
+            CurrentWeaponModel = CurrentWeaponInterface as WeaponModel;            
             if (CurrentWeaponModel == null)
                 BulletProducer = null;
             else
             {
                 BulletProducer = CurrentWeaponModel.BulletProducer;
-                var bpt = BulletProducer.transform;
-                if (OwnerTransform != null)
-                    bpt.SetParent(OwnerTransform);
-                bpt.localRotation = Quaternion.identity;
-                bpt.localPosition = Vector3.zero;
+                BulletProducer.OrientAndAttach(OwnerTransform);
             }
+
+            //TODO: I use it every time, refactor
+            if (CurrentWeaponView)
+                CurrentWeaponView.Hide();
+            if (WeaponViews != null && WeaponViews.Count > currentWeaponId)
+                CurrentWeaponView = WeaponViews[currentWeaponId];
+            if (CurrentWeaponView)
+                CurrentWeaponView.Show();
         }
     }
 

@@ -10,11 +10,17 @@ namespace VGF.Action3d.Weapon
     {
         //[SerializeField]
         public AbstractBulletProducer BulletProducer;
+        public WeaponView ViewPrefab;
         public IWeaponModel Init()
         {
             var result = Instantiate(this);
             result.BulletProducer = Instantiate(BulletProducer);
             return result;
+        }
+
+        public WeaponView GetView()
+        {            
+            return ViewPrefab? Instantiate(ViewPrefab) : null;
         }
     }
 }

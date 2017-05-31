@@ -11,11 +11,14 @@ namespace VGF.Action3d.NPC.Enemy
     {
         [SerializeField]
         WeaponControllerUnity Weapon;
+        [SerializeField]
+        Transform WeaponViewPivot;
+
         protected override void InitNPCModel()
         {
             base.InitNPCModel();
             if (Weapon != null)
-                Weapon.Init(myTransform);
+                Weapon.Init(myTransform, WeaponViewPivot);
         }
 
         public override void InteractWithTarget()

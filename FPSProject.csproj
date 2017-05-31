@@ -120,11 +120,11 @@
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Alive\AbstractAliveController.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Alive\AliveModelTransform.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Alive\DamageableController.cs" />
-    <Compile Include="Assets\VGF\UnityRealization\Action3d\FPSController.cs" />
-    <Compile Include="Assets\VGF\UnityRealization\Action3d\FPSPlayerModel.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\NPC\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\NPC\Scripts\Enemy\Strategies\DeadStrategySwitchOff.cs" />
-    <Compile Include="Assets\VGF\UnityRealization\Action3d\PlayerController.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Player\FPSController.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Player\FPSPlayerModel.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Player\PlayerController.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\AbstractBullet.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\AbstractBulletProducer.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\ProjectileBullet.cs" />
@@ -133,6 +133,7 @@
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\RaycastBulletProducer.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\WeaponControllerUnity.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\WeaponModel.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\WeaponView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />

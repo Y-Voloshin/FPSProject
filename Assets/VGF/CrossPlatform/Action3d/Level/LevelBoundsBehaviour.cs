@@ -23,6 +23,8 @@ namespace VGF.Action3d.Level
             instance = this;
             instanceExists = true;
             SetFloatsFromBounds();
+
+            Random.InitState(System.DateTime.Now.Millisecond * System.DateTime.Now.Second);
         }
 
         void SetFloatsFromBounds()
