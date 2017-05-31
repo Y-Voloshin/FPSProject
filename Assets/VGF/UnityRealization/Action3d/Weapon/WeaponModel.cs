@@ -11,6 +11,10 @@ namespace VGF.Action3d.Weapon
         //[SerializeField]
         public AbstractBulletProducer BulletProducer;
         public WeaponView ViewPrefab;
+        public float ShootCooldown = 1.5f;
+        [HideInInspector]
+        public float LastShotTime;
+
         public IWeaponModel Init()
         {
             var result = Instantiate(this);

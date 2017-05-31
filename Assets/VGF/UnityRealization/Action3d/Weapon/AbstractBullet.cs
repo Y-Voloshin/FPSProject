@@ -22,9 +22,9 @@ namespace VGF.Action3d.Weapon
 
         protected void TryGiveDamage(Transform hittedTransform)
         {
-            AbstractAliveController alive;
-            if (hittedTransform.TryGetAliveComponent(out alive))
-                alive.TakeDamage(damage);
+            IDamageable target;
+            if (hittedTransform.TryGetDamageableComponent(out target))
+                target.TakeDamage(damage);
         }
 
     }

@@ -18,21 +18,15 @@
         {
             if (ownerNPC.SeeTarget())
             {
-                //ownerNPC.SwitchState(deadArgs);
+                ownerNPC.SwitchState(finishedArgs);
+                return;
             }
             //Put checck enemy visibility here
             // also a common stuff
             if (!ownerNPC.HasPath())
             {
-                //Debug.Log("no path anymore");
-                //finishedArgs.NextState = NPCState.Idle;
-                //CallOnFinished_Finished();
                 ownerNPC.GoToRandomPoint();
             }
-        }
-
-        protected override void SpecifiedInit(NPCModel actorModel)
-        {
         }
     }
 }

@@ -23,22 +23,38 @@ namespace VGF.Action3d.NPC
 
         bool strategyForCurrentStateExists = false;
         [SerializeField]
-        NPCModel npcModel;
+        protected NPCModel npcModel;
 
         #region some settings, put them somewhere else
         float detectDistance = 15, 
             detectAngle = 50, 
             detectAnywayDistance = 5;
         #endregion
-        Transform TargetTransform;
+        protected Transform TargetTransform;
 
+        //public abstract bool TargetIsAvailable { get; }
+        public override Vector3 Position
+        {
+            get
+            {
+                return npcModel.CurrentPosition;
+            }
+        }
+
+        /*
         // Use this for initialization
         void Start()
         {
             InitNPCModel();
-            TargetTransform = GameObject.FindGameObjectWithTag("Player").transform;
             //Debug.Log(TargetTransform);
         }
+        */
+        protected override void Init()
+        {
+            base.Init();
+            InitNPCModel();
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -73,9 +89,9 @@ namespace VGF.Action3d.NPC
         protected abstract void CreateStrategies();
 
         protected void CreateStrategy<T>(NPCState strategyState,
-            NPCState finishedState = NPCState.Idle,
-            NPCState failedState = NPCState.Idle,
-            NPCState deadState = NPCState.Dead)
+            StrategyEventArgs finishedArgs = null,
+            StrategyEventArgs failedArgs = null,
+            StrategyEventArgs deadArgs = null)
             where T: AbstractNPCStrategy, new ()
         {
             if (Strategies == null)
@@ -88,7 +104,10 @@ namespace VGF.Action3d.NPC
                     return;
                 }
             }
-            Strategies.Add(strategyState, AbstractNPCStrategy.CreateStrategy<T>(this, npcModel, finishedState, failedState, deadState));
+            Strategies.Add(strategyState, AbstractNPCStrategy.CreateStrategy<T>(this,
+                finishedArgs == null? StrategyEventArgs.SimpleIdle : finishedArgs,
+                failedArgs == null ? StrategyEventArgs.SimpleIdle : failedArgs,
+                deadArgs == null ? StrategyEventArgs.SimpleDead : deadArgs));
         }
 
         void SwitchState(NPCState state)
@@ -123,6 +142,12 @@ namespace VGF.Action3d.NPC
                 myNavMeshAgent.SetDestination(LevelBoundsBehaviour.GetPointWithinBounds(myTransform.position, myTransform.forward, 0.5f, npcModel.RandomWalkRange));
         }
 
+        public void GoToRandomPointNextToTarget()
+        {
+            if (myNavMeshAgent)
+                myNavMeshAgent.SetDestination(LevelBoundsBehaviour.GetPointWithinBounds(TargetTransform.position, -myTransform.forward, 0.2f, npcModel.HoldTargetDistance));
+        }
+
         public bool HasPath()
         {
             return myNavMeshAgent && myNavMeshAgent.hasPath;
@@ -145,16 +170,19 @@ namespace VGF.Action3d.NPC
                 //TODO: fix, use LayerMask
                 if (Physics.Raycast(npcModel.CurrentPosition + vectorToTarget.normalized, vectorToTarget, out hit, dist))
                 {
-                    //if (hit.transform.name == "LegTop")
-                    //    Debug.DrawRay(npcModel.CurrentPosition, vectorToTarget, Color.red, 20f);
-
-
-                    //Debug.Log(hit.transform);
                     return hit.transform == TargetTransform;
                 }
             }
-
             return false;
+        }
+
+        public void LookAtTarget()
+        {
+            if (TargetTransform == null)
+                return;
+            Vector3 lookPoint = TargetTransform.position;
+            lookPoint.y = myTransform.position.y;
+            myTransform.LookAt(lookPoint);
         }
 
         public void Stop()
@@ -164,5 +192,11 @@ namespace VGF.Action3d.NPC
         }
 
         public abstract void InteractWithTarget();
+
+        public void GoToPoint(Vector3 point)
+        {
+            if (myNavMeshAgent)
+                myNavMeshAgent.SetDestination(point);
+        }
     }
 }

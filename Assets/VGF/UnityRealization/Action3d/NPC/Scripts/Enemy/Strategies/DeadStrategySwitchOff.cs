@@ -7,19 +7,16 @@ namespace VGF.Action3d.NPC.Common
 {
     public class DeadStrategySwitchOff : AbstractNPCStrategy
     {
-        protected override void SpecifiedInit(NPCModel actorModel)
-        {
-            //throw new NotImplementedException();
-        }
 
         protected override void StartLogic(StrategyEventArgs previousStrategyEventArgs = null)
         {
-            //throw new NotImplementedException();
+            (ownerNPC as MonoBehaviour).gameObject.SetActive(false);
         }
 
         protected override void UpdateLogic()
         {
-            (ownerNPC as MonoBehaviour).gameObject.SetActive(false);
+            //(ownerNPC as MonoBehaviour).gameObject.SetActive(false);
+            Debug.Log("Dead strategy update instead of switching off");
         }
     }
 }

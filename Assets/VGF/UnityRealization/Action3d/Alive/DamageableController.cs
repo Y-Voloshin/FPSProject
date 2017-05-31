@@ -50,7 +50,7 @@ namespace VGF.Action3d
          * - create static dictionary AliveController.All <Transform, AliveController>
          * - check if this dict contains hitted transform
         */
-        public static bool TryGetAliveComponent(this Transform tr, out IDamageable damageable)
+        public static bool TryGetDamageableComponent(this Transform tr, out IDamageable damageable)
         {
             return DamageableController.GetAliveControllerForTransform(tr, out damageable);
         }

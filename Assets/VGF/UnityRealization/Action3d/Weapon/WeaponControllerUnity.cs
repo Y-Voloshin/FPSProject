@@ -19,7 +19,8 @@ namespace VGF.Action3d.Weapon
         AbstractBulletProducer BulletProducer;
         Transform OwnerTransform,
             ViewOwnerTransform;
-
+        [SerializeField]
+        bool UnlimitedShootSpeed;
 
         public void Init(Transform ownerTransform, Transform viewOwnerTransform)
         {
@@ -60,7 +61,16 @@ namespace VGF.Action3d.Weapon
                 return;
             if (BulletProducer == null)
                 return;
+
+            if (UnlimitedShootSpeed ||
+                (Time.realtimeSinceStartup - CurrentWeaponModel.LastShotTime >= CurrentWeaponModel.ShootCooldown))
+                Shoot();
+        }
+
+        void Shoot()
+        {
             BulletProducer.Push();
+            CurrentWeaponModel.LastShotTime = Time.realtimeSinceStartup;
             if (CurrentWeaponView)
                 CurrentWeaponView.Shoot();
         }

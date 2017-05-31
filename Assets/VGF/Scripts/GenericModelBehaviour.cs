@@ -18,6 +18,11 @@ namespace VGF
         protected override void Awake()
         {
             base.Awake();
+            //Init();
+        }
+
+        void Start()
+        {
             Init();
         }
 

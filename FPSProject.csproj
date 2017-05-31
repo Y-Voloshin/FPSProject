@@ -99,11 +99,14 @@
     <Compile Include="Assets\Camera\Camera3rd.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\AliveModelBasic.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\Interfaces.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\ITarget.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Level\LevelBoundsBehaviour.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\AbstractNPCStrategy.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\Common\RandomWalkStrategy.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\Enemy\Strategies\AttackTargetStrategy.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\Enemy\Strategies\IdleStrategy.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\Enemy\Strategies\PatrolStrategy.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\Enemy\Strategies\StalkTargetStrategy.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\INPCController.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\NPCController.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\NPCModel.cs" />

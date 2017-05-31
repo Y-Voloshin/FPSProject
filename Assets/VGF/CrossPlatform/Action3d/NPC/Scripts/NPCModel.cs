@@ -12,6 +12,7 @@ namespace VGF.Action3d.NPC
         public float DetectionDistance = 25;
         public float DetectionAngle = 50;
         public float DetectAnywayDistance = 10;
+        public float HoldTargetDistance = 20;
         #region
         [HideInInspector]
         public Vector3 CurrentPosition;

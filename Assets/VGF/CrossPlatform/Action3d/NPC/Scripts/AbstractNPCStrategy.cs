@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace VGF.Action3d.NPC
 {
@@ -33,23 +30,19 @@ namespace VGF.Action3d.NPC
 
         }
 
-        public AbstractNPCStrategy(INPCController controller, NPCModel actorModel,
-            NPCState finishedState = NPCState.Idle, NPCState failedState = NPCState.Idle, NPCState deadState = NPCState.Dead)
+        public AbstractNPCStrategy(INPCController controller, StrategyEventArgs finishedArgs, StrategyEventArgs failedArgs, StrategyEventArgs deadArgs)
         {
-            Init(controller, actorModel, finishedState, failedState, deadState);
+            Init(controller, finishedArgs, failedArgs, deadArgs);
         }
 
         public static AbstractNPCStrategy CreateStrategy<T>
-            (INPCController controller, NPCModel actorModel,
-            NPCState finishedState = NPCState.Idle, NPCState failedState = NPCState.Idle, NPCState deadState = NPCState.Dead) 
+            (INPCController controller, StrategyEventArgs finishedArgs, StrategyEventArgs failedArgs, StrategyEventArgs deadArgs) 
             where T: AbstractNPCStrategy, new ()
         {
             var result = new T();
-            result.Init(controller, actorModel, finishedState, failedState, deadState);
+            result.Init(controller, finishedArgs, failedArgs, deadArgs);
             return result;
-        }
-
-        
+        }        
 
         /// <summary>
         /// Init function should be used in constructor
@@ -59,8 +52,7 @@ namespace VGF.Action3d.NPC
         /// <param name="finishedState"></param>
         /// <param name="failedState"></param>
         /// <param name="deadState"></param>
-        protected void Init(INPCController controller, NPCModel actorModel,
-            NPCState finishedState = NPCState.Idle, NPCState failedState = NPCState.Idle, NPCState deadState = NPCState.Dead)
+        protected void Init(INPCController controller, StrategyEventArgs finishedArgs, StrategyEventArgs failedArgs, StrategyEventArgs deadArgs)
         {
             //No necessarry to create new StrategyEventArgs instancess for same values.
             // So override only if desired value are special
@@ -71,12 +63,10 @@ namespace VGF.Action3d.NPC
             if (ownerNPC == null)
                 SomeRequiredDataAreAbsent = true;
 
-            finishedArgs = new StrategyEventArgs { NextState = finishedState };
+            this.finishedArgs = finishedArgs;
 
-            failedArgs = new StrategyEventArgs { NextState = failedState };
-            deadArgs = new StrategyEventArgs { NextState = deadState };
-            
-            SpecifiedInit(actorModel);
+            this.failedArgs = failedArgs;
+            this.deadArgs = deadArgs;
         }
         
         public void Start(StrategyEventArgs previousStrategyEventArgs = null)
@@ -94,8 +84,7 @@ namespace VGF.Action3d.NPC
             else
                 UpdateLogic();
         }
-
-        protected abstract void SpecifiedInit(NPCModel actorModel);        
+    
         protected abstract void StartLogic(StrategyEventArgs previousStrategyEventArgs = null);
         protected abstract void UpdateLogic();
         protected virtual void StartFailLogic(StrategyEventArgs previousStrategyEventArgs = null)
@@ -137,8 +126,33 @@ namespace VGF.Action3d.NPC
         /// </summary>
         public Vector3 PointOfInterest;
         /// <summary>
-        /// gameobct transform used for next strategy (if needed)
+        /// gameobject transform used for next strategy (if needed)
         /// </summary>
-        public Transform objectToDealWith;
+        public ITarget objectToDealWith;
+
+        public StrategyEventArgs() { }
+        public StrategyEventArgs(NPCState nextState)
+        {
+            NextState = nextState;
+        }
+        /*
+        public StrategyEventArgs(NPCState nextState, Vector3 pointOfInterest)
+        {
+            NextState = nextState;
+            PointOfInterest = pointOfInterest;
+        }
+        */
+        public StrategyEventArgs(NPCState nextState, ITarget targetObject)
+        {
+            NextState = nextState;
+            objectToDealWith = targetObject;
+        }
+        /*
+        public StrategyEventArgs(NPCState nextState, Transform targetObject, Vector3 pointOfInterest) {
+            NextState = nextState;
+            objectToDealWith = targetObject;
+            PointOfInterest = pointOfInterest;
+        }
+        */
     }
 }

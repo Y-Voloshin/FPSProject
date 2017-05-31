@@ -15,8 +15,9 @@ namespace VGF.Action3d
             WeaponViewPivot;
 
         // Use this for initialization
-        void Start()
+        protected override void Init()
         {
+            base.Init();
             if (Weapon != null)
                 Weapon.Init(BulletProducerPivot, WeaponViewPivot);
         }

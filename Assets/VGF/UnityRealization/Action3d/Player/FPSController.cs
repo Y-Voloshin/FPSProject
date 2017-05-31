@@ -60,8 +60,8 @@ namespace VGF.Action3d
         Vector3 downV3 = Vector3.down;
         bool moving;
         #endregion
-        
 
+        AbstractAliveController AliveComponent;
         // Use this for initialization
         void Start()
         {
@@ -73,11 +73,15 @@ namespace VGF.Action3d
             DownSphereCastRadius = myCapsuleRadius * (1.0f - advancedSettings.shellOffset);
             ForwardCastRadius = myCapsuleRadius * 1.3f;
             mouseLook.Init(transform, rotationPivotTransform);
+
+            AliveComponent = GetComponent <AbstractAliveController>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (AliveComponent && !AliveComponent.IsAlive)
+                return;
             RotateView();
             CheckInput();
             

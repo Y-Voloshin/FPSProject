@@ -10,12 +10,6 @@ namespace VGF.Action3d
         //TODO: create separate unity implementation where put all the [SerializeField] attributes
         [SerializeField]
         bool Immortal;
-
-        /*
-        [SerializeField]
-        int HealthBasic,
-            HealthCurrent;
-*/
         static Dictionary<Transform, AbstractAliveController> All = new Dictionary<Transform, AbstractAliveController>();
         public static bool GetAliveControllerForTransform(Transform tr, out AbstractAliveController aliveController)
         {
@@ -24,6 +18,16 @@ namespace VGF.Action3d
 
         DamageableController[] BodyParts;
         
+        public bool IsAlive { get { return Immortal || CurrentModel.HealthCurrent > 0; } }
+        public bool IsAvailable { get { return IsAlive && myGO.activeSelf; } }
+        public virtual Vector3 Position { get { return myTransform.position; } }
+
+        //TODO: create 2 inits
+        protected override void Awake()
+        {
+            base.Awake();
+            All.Add(myTransform, this);
+        }
 
         protected override void Init()
         {
@@ -31,7 +35,7 @@ namespace VGF.Action3d
             InitModel.Rotation = myTransform.rotation;
             base.Init();
 
-            All.Add(myTransform, this);
+            
             BodyParts = GetComponentsInChildren<DamageableController>();
             foreach (var bp in BodyParts)
                 bp.OnDamageTaken += TakeDamage;
