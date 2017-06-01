@@ -22,11 +22,17 @@ namespace VGF.Action3d
         public bool IsAvailable { get { return IsAlive && myGO.activeSelf; } }
         public virtual Vector3 Position { get { return myTransform.position; } }
 
+        public static event Action<AbstractAliveController> OnDead;
+        /// <summary>
+        /// Sends the current health of this alive controller
+        /// </summary>
+        public event Action<int> OnDamaged;
+
         //TODO: create 2 inits
         protected override void Awake()
         {
             base.Awake();
-            All.Add(myTransform, this);
+            All.Add(myTransform, this);            
         }
 
         protected override void Init()
@@ -64,6 +70,7 @@ namespace VGF.Action3d
         {
             myTransform.position = CurrentModel.Position;
             myTransform.rotation = CurrentModel.Rotation;
+            myGO.SetActive(true);
         }
 
         public void Respawn()
@@ -76,8 +83,17 @@ namespace VGF.Action3d
             if (Immortal)
                 return;
             CurrentModel.HealthCurrent -= damage;
+            OnDamaged.CallEventIfNotNull(CurrentModel.HealthCurrent);
             if (CurrentModel.HealthCurrent <= 0)
+            {
+                OnDead.CallEventIfNotNull(this);
                 Die();
+            }
+        }
+
+        public int CurrentHealth
+        {
+            get { return CurrentModel.HealthCurrent; }
         }
 
         protected abstract void Die();

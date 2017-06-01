@@ -52,6 +52,13 @@ namespace VGF.Action3d.NPC
         protected override void Init()
         {
             base.Init();
+            CreateStrategies();
+            InitNPCModel();
+        }
+
+        protected override void LoadInit()
+        {
+            base.LoadInit();
             InitNPCModel();
         }
 
@@ -71,8 +78,7 @@ namespace VGF.Action3d.NPC
                 npcModel = new NPCModel(this);
             else
                 npcModel.Init(this);
-
-            CreateStrategies();
+            //CreateStrategies();
             if (SetFirstStateFromCode)
                 SetFirstState();
             SwitchState(currentState);
@@ -126,7 +132,7 @@ namespace VGF.Action3d.NPC
         {
             currentState = previousStrategyEventArgs == null ?
                 NPCState.Idle : previousStrategyEventArgs.NextState;
-            Debug.Log(currentState);
+            //Debug.Log(currentState);
 
             strategyForCurrentStateExists = Strategies != null
                 && Strategies.Count > 0

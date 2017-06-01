@@ -99,6 +99,7 @@
     <Compile Include="Assets\Camera\Camera3rd.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\AliveModelBasic.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\Interfaces.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\GameManager.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\ITarget.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Level\LevelBoundsBehaviour.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\AbstractNPCStrategy.cs" />
@@ -110,10 +111,16 @@
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\INPCController.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\NPCController.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\NPC\Scripts\NPCModel.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\StaticSystemClassesInitializer.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\Statictics\StatisticsController.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\Statictics\StatisticsModel.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\UI\GameOverPanel.cs" />
+    <Compile Include="Assets\VGF\CrossPlatform\Action3d\UI\UIController.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Weapon\Interfaces.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Weapon\WeaponController.cs" />
     <Compile Include="Assets\VGF\Scripts\AbstractModel.cs" />
     <Compile Include="Assets\VGF\Scripts\CachedBehaviour.cs" />
+    <Compile Include="Assets\VGF\Scripts\CursorExtensions.cs" />
     <Compile Include="Assets\VGF\Scripts\Debug\DebugLabel.cs" />
     <Compile Include="Assets\VGF\Scripts\DotNetExtensions\EventExtensions.cs" />
     <Compile Include="Assets\VGF\Scripts\GenericModelBehaviour.cs" />
