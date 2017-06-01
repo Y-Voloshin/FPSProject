@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 9eb282df16758c847a78f10ce318f365
-timeCreated: 1496341004
-licenseType: Free
+guid: fca06bdb2c29e7344b757645530b0eff
+timeCreated: 1485893835
+licenseType: Store
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gravityFont: {fileID: 12800000, guid: 28ed1153d48f34485be1063881729e18, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -150,10 +150,6 @@
     <Compile Include="Assets\3rdParty\ProCore\ProBuilder\Editor\pb_MenuItems.cs" />
     <Compile Include="Assets\3rdParty\ProCore\ProBuilder\Editor\pb_MissingScriptEditor.cs" />
     <Compile Include="Assets\3rdParty\ProCore\ProBuilder\Editor\pb_Preferences.cs" />
-    <Compile Include="Assets\AssetBundleManager\Editor\AssetbundlesMenuItems.cs" />
-    <Compile Include="Assets\AssetBundleManager\Editor\BuildScript.cs" />
-    <Compile Include="Assets\AssetBundleManager\Editor\ExecuteInternalMono.cs" />
-    <Compile Include="Assets\AssetBundleManager\Editor\LaunchAssetBundleServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />

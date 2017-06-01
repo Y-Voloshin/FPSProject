@@ -93,7 +93,7 @@ namespace VGF.Action3d
 
         public int CurrentHealth
         {
-            get { return CurrentModel == null? InitModel.HealthCurrent: CurrentModel.HealthCurrent; }
+            get { return CurrentModel.HealthCurrent; }
         }
 
         protected abstract void Die();
