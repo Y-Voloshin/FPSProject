@@ -96,7 +96,13 @@
     <Compile Include="Assets\3rdParty\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\3rdParty\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\3rdParty\Standard Assets\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Camera\Camera3rd.cs" />
+    <Compile Include="Assets\AssetBundleManager\AssetBundleLoadOperation.cs" />
+    <Compile Include="Assets\AssetBundleManager\AssetBundleManager.cs" />
+    <Compile Include="Assets\AssetBundleManager\Utility.cs" />
+    <Compile Include="Assets\AssetBundleSample\Scripts\LoadAssets.cs" />
+    <Compile Include="Assets\AssetBundleSample\Scripts\LoadScenes.cs" />
+    <Compile Include="Assets\AssetBundleSample\Scripts\LoadTanks.cs" />
+    <Compile Include="Assets\AssetBundleSample\Scripts\LoadVariants.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\AliveModelBasic.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\Alive\Interfaces.cs" />
     <Compile Include="Assets\VGF\CrossPlatform\Action3d\GameManager.cs" />
@@ -144,6 +150,7 @@
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\WeaponControllerUnity.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\WeaponModel.cs" />
     <Compile Include="Assets\VGF\UnityRealization\Action3d\Weapon\WeaponView.cs" />
+    <Compile Include="Assets\VGF\UnityRealization\Camera\Camera3rd.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
