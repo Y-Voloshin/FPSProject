@@ -17,6 +17,7 @@ namespace VGF.Action3d
             player.OnDamaged += OnPlayerDamagedHandler;
             AbstractAliveController.OnDead += OnAliveDeadHandler;
             EnemiesCount = GameObject.FindObjectsOfType<NPC.Enemy.EnemyController>().Length;
+            UI.UIController.OnRestart += RestartMatch;
             InitMatch();
         }
 

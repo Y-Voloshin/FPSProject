@@ -13,9 +13,11 @@ namespace VGF.Action3d.UI
             Enemies;
         [SerializeField]
         GameOverPanel GameOverPanel;
+        [SerializeField]
+        GameObject ExitMenu;
 
         static UIController instance;
-
+        public static event System.Action OnRestart;
 
         private void Awake()
         {
@@ -37,7 +39,21 @@ namespace VGF.Action3d.UI
         // Update is called once per frame
         void Update()
         {
+            CheckExitGameMenu();
+        }
 
+        void CheckExitGameMenu()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (GameOverPanel.gameObject.activeSelf)
+                    return;
+                if (!ExitMenu)
+                    return;
+                bool exitActive = ExitMenu.activeSelf;
+                MyCursor.SetHide(exitActive);
+                ExitMenu.SetActive(!exitActive);
+            }
         }
 
         public static void UpdateHealth(int value)
@@ -52,9 +68,9 @@ namespace VGF.Action3d.UI
 
         public void Restart()
         {
-            MyCursor.SetHide(true);
-            GameManager.RestartMatch();
+            MyCursor.SetHide(true);            
             GameOverPanel.Hide();
+            OnRestart.CallEventIfNotNull();
         }
 
         void GameOver()
@@ -68,5 +84,17 @@ namespace VGF.Action3d.UI
         {
             instance.GameOver();
         }
+
+        public void OnGameExit()
+        {
+            Application.Quit();
+        }
+
+        public void OnBackToGame()
+        {
+            MyCursor.SetHide(true);
+            ExitMenu.SetActive(false);
+        }
+        
     }
 }
