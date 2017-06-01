@@ -24,8 +24,8 @@ namespace VGF.Action3d
         public static void RestartMatch()
         {
             SaveLoadBehaviour.LoadInitAll();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.None;
+            //Cursor.visible = true;
             InitMatch();
         }
 
@@ -35,6 +35,7 @@ namespace VGF.Action3d
             MatchStartSeconds = Time.realtimeSinceStartup;
             UI.UIController.UpdateEnemiesLeft(EnemiesCountCurrent);
             UI.UIController.UpdateHealth(player.CurrentHealth);
+            MyCursor.SetHide(true);
         }        
 
         static void OnPlayerDamagedHandler(int hpLeft)
