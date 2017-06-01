@@ -1,0 +1,52 @@
+ManifestFileVersion: 0
+CRC: 2439452509
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5d1d6b7933bacc1ff08cd9ee478d9d9f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 875287def0785c1c3a9b6146f6175cd3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+Assets:
+- Assets/Scenes/Game/Lightmap-4_comp_light.exr
+- Assets/Scenes/Game/Lightmap-9_comp_dir.png
+- Assets/Scenes/Game/Lightmap-10_comp_light.exr
+- Assets/Scenes/Game/Lightmap-0_comp_light.exr
+- Assets/Scenes/Game/Lightmap-7_comp_dir.png
+- Assets/Scenes/Game/Lightmap-13_comp_dir.png
+- Assets/Scenes/Game/Lightmap-6_comp_dir.png
+- Assets/Scenes/Game/Lightmap-11_comp_dir.png
+- Assets/Scenes/Game/Lightmap-7_comp_light.exr
+- Assets/Scenes/Game/Lightmap-8_comp_dir.png
+- Assets/Scenes/Game/Lightmap-3_comp_dir.png
+- Assets/Scenes/Game/Lightmap-15_comp_light.exr
+- Assets/Scenes/Game/Lightmap-2_comp_dir.png
+- Assets/Scenes/Game/Lightmap-13_comp_light.exr
+- Assets/Scenes/Game/Lightmap-12_comp_light.exr
+- Assets/Scenes/Game/Lightmap-14_comp_dir.png
+- Assets/Scenes/Game/Lightmap-2_comp_light.exr
+- Assets/Scenes/Game/Lightmap-6_comp_light.exr
+- Assets/Scenes/Game/Lightmap-5_comp_light.exr
+- Assets/Scenes/Game/Lightmap-15_comp_dir.png
+- Assets/Scenes/Game/Lightmap-0_comp_dir.png
+- Assets/Scenes/Game/Lightmap-9_comp_light.exr
+- Assets/Scenes/Game/Lightmap-5_comp_dir.png
+- Assets/Scenes/Game/ReflectionProbe-0.exr
+- Assets/Scenes/Game/Lightmap-10_comp_dir.png
+- Assets/Scenes/Game/Lightmap-1_comp_dir.png
+- Assets/Scenes/Game/Lightmap-12_comp_dir.png
+- Assets/Scenes/Game/Lightmap-14_comp_light.exr
+- Assets/Scenes/Game/Lightmap-11_comp_light.exr
+- Assets/Scenes/Game/Lightmap-16_comp_dir.png
+- Assets/Scenes/Game/Lightmap-1_comp_light.exr
+- Assets/Scenes/Game/Lightmap-8_comp_light.exr
+- Assets/Scenes/Game/Lightmap-16_comp_light.exr
+- Assets/Scenes/Game/Lightmap-4_comp_dir.png
+- Assets/Scenes/Game/Lightmap-3_comp_light.exr
+Dependencies: []

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 589553354
+CRC: 4077450864
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dd5d9770c6364bc84ee95e3557c44770
+    Hash: 21ab636463e7808e8e58c42c2d5f3ab2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 31d6cfe0d16ae931b73c59d7e0c089c0
@@ -11,4 +11,9 @@ HashAppended: 0
 ClassTypes: []
 Assets:
 - Assets/Scenes/Game.unity
-Dependencies: []
+Dependencies:
+- D:/GitHub/FPSProject/AssetBundles/Windows/vgf_environment
+- D:/GitHub/FPSProject/AssetBundles/Windows/vgf_textures_sprites
+- D:/GitHub/FPSProject/AssetBundles/Windows/vgf_lightmaps
+- D:/GitHub/FPSProject/AssetBundles/Windows/vgf_prefab
+- D:/GitHub/FPSProject/AssetBundles/Windows/vgf_music

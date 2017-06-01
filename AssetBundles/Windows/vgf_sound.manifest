@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 614582400
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a29625c75b7bd60b9011e36caf800454
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c516f2a3b2b6b67ef759f6410a790acd
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- "Assets/VGF/UnityRealization/Action3d/Weapon/\u0432\u044B\u0441\u0442\u0440\u0435\u043B/2.ogg"
+- "Assets/VGF/UnityRealization/Action3d/Weapon/\u0432\u044B\u0441\u0442\u0440\u0435\u043B/1.ogg"
+- "Assets/VGF/UnityRealization/Action3d/Weapon/\u0432\u044B\u0441\u0442\u0440\u0435\u043B/Riffle1.mp3"
+- "Assets/VGF/UnityRealization/Action3d/Weapon/\u0432\u044B\u0441\u0442\u0440\u0435\u043B/3.ogg"
+- "Assets/VGF/UnityRealization/Action3d/Weapon/\u0432\u044B\u0441\u0442\u0440\u0435\u043B/Pistol1.mp3"
+Dependencies: []

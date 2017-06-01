@@ -1,0 +1,50 @@
+ManifestFileVersion: 0
+CRC: 2198440289
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3a9f33eab0d27de98430fab971884832
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b95b57bf0227307334d2ff033b8c879a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 16342205, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
+- Class: 114
+  Script: {fileID: 185759285, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6cb2491b8a8e8cc4f88a4c064d5dd478, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 154
+  Script: {instanceID: 0}
+- Class: 156
+  Script: {instanceID: 0}
+- Class: 218
+  Script: {instanceID: 0}
+Assets:
+- Assets/LevelPieces/OfficeBuilding/Office01.prefab
+- Assets/LevelPieces/OfficeBuilding/Level.prefab
+Dependencies:
+- D:/GitHub/FPSProject/AssetBundles/Windows/vgf_textures_sprites

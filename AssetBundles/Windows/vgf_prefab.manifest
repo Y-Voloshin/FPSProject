@@ -1,0 +1,88 @@
+ManifestFileVersion: 0
+CRC: 2555921359
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f89725e69071fff4837dc35aa75a5130
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8f837236631389856e0118d0f5021514
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 57d80f0830737404cba80812106a1f07, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d2c99340d7a3c1144ab81d0f6eb37a4e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 01728f4193858194e9de9d7d654616b5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2319317d6c564b4438be73241e60ffe0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 359c1b37f8137104db9c6d5ad6660368, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 572c3de94a3ae9e4e90148df93a7be33, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9835784d1c649494d8cb06cae35432f4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cdbc2fe463e50b343a54e3e48c343141, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e0d294e2a7c8d6b45975d8472b611cbc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ffb333ca38df3b243aff50304969e4bf, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 195
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/VGF/UnityRealization/Action3d/Weapon/Prefabs/PlasmaGunEnemy/PlasmaGunBulletProducer.prefab
+- Assets/VGF/UnityRealization/Action3d/Weapon/Prefabs/PlasmaGun/PlasmaGunBulletProducer.prefab
+- Assets/VGF/UnityRealization/Action3d/Weapon/Prefabs/PlasmaGun/PlasmaGunProjectile.prefab
+- Assets/VGF/UnityRealization/Action3d/Weapon/Prefabs/PlasmaGunEnemy/PlasmaGunProjectile.prefab
+- Assets/VGF/UnityRealization/Prefabs/LabelValueGroup.prefab
+- Assets/VGF/UnityRealization/Action3d/Player/Player.prefab
+- Assets/VGF/UnityRealization/Action3d/Weapon/Prefabs/PlasmaGun/PlasmaGun.prefab
+- Assets/VGF/UnityRealization/Prefabs/Debug/DebugPanel.prefab
+- Assets/VGF/UnityRealization/Action3d/Weapon/Prefabs/PlasmaGunEnemy/PlasmaGun.prefab
+- Assets/VGF/UnityRealization/Action3d/NPC/Scripts/Enemy/Prefabs/Guard.prefab
+Dependencies:
+- D:/GitHub/FPSProject/AssetBundles/Windows/vgf_sound
