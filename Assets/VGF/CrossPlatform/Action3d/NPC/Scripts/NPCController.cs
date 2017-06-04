@@ -165,6 +165,9 @@ namespace VGF.Action3d.NPC
                 return false;
             Vector3 tPos = TargetTransform.position;
             Vector3 vectorToTarget = tPos - npcModel.CurrentPosition;
+            Vector3 raycastOffset = new Vector3(vectorToTarget.x, 0, vectorToTarget.z).normalized;
+            Vector3 from = npcModel.CurrentPosition + raycastOffset;
+            Vector3 direction = tPos - from;
             //tPos += vectorToTarget.normalized * 3;
             float dist = Vector3.Distance(tPos, npcModel.CurrentPosition);
             if (dist <= detectAnywayDistance
@@ -174,9 +177,11 @@ namespace VGF.Action3d.NPC
 
                 //Magic code: just cast ray from one unit away from center
                 //TODO: fix, use LayerMask
-                if (Physics.Raycast(npcModel.CurrentPosition + vectorToTarget.normalized, vectorToTarget, out hit, dist))
+                if (Physics.Raycast(from, direction, out hit, dist))
                 {
-                    return hit.transform == TargetTransform;
+                    DebugTools.DebugLabel.ShowValue(hit.transform.name, 2);
+                        return hit.transform == TargetTransform;
+                    
                 }
             }
             return false;

@@ -45,6 +45,7 @@ namespace VGF.Action3d.NPC.Enemy
             if (!myNavMeshAgent.hasPath)
                 GoToRandomPointNextToTarget();
             LookAtTarget();
+            BulletProducerPivot.LookAt(TargetTransform);
             Weapon.TryShoot();
         }
 
