@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3210323298
+CRC: 2484013960
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -7,9 +7,8 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: vgf_environment
         Dependency_1: vgf_textures_sprites
-        Dependency_2: vgf_lightmaps
-        Dependency_3: vgf_prefab
-        Dependency_4: vgf_music
+        Dependency_2: vgf_prefab
+        Dependency_3: vgf_music
     Info_1:
       Name: scene-bundle
       Dependencies:
@@ -61,15 +60,12 @@ AssetBundleManifest:
       Name: vgf_textures_sprites
       Dependencies: {}
     Info_16:
-      Name: vgf_lightmaps
-      Dependencies: {}
-    Info_17:
       Name: vgf_prefab
       Dependencies:
         Dependency_0: vgf_sound
-    Info_18:
+    Info_17:
       Name: vgf_music
       Dependencies: {}
-    Info_19:
+    Info_18:
       Name: vgf_sound
       Dependencies: {}

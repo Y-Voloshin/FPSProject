@@ -27,12 +27,11 @@ public class LoadAssets : MonoBehaviour
 		// With this code, when in-editor or using a development builds: Always use the AssetBundle Server
 		// (This is very dependent on the production workflow of the project. 
 		// 	Another approach would be to make this configurable in the standalone player.)
-		#if DEVELOPMENT_BUILD || UNITY_EDITOR && false
+		#if DEVELOPMENT_BUILD || UNITY_EDITOR
 		AssetBundleManager.SetDevelopmentAssetBundleServer ();
 		#else
 		// Use the following code if AssetBundles are embedded in the project for example via StreamingAssets folder etc:
 		AssetBundleManager.SetSourceAssetBundleURL(Application.dataPath + "/");
-        AssetBundleManager.SetSourceAssetBundleDirectory("/");
 		// Or customize the URL based on your deployment or configuration
 		//AssetBundleManager.SetSourceAssetBundleURL("http://www.MyWebsite/MyAssetBundles");
 		#endif

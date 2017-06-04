@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2198440289
+CRC: 1813984502
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3a9f33eab0d27de98430fab971884832
+    Hash: f7f8f9b628dc07734eeabb4c32c946b9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b95b57bf0227307334d2ff033b8c879a
+    Hash: 628cdd8769147a2b50e54f71b6aed0a9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -29,12 +29,14 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6cb2491b8a8e8cc4f88a4c064d5dd478, type: 3}
 - Class: 114
   Script: {fileID: 16342205, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
 - Class: 114
   Script: {fileID: 185759285, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 6cb2491b8a8e8cc4f88a4c064d5dd478, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 154
@@ -43,8 +45,11 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 218
   Script: {instanceID: 0}
+- Class: 238
+  Script: {instanceID: 0}
 Assets:
 - Assets/LevelPieces/OfficeBuilding/Office01.prefab
+- Assets/Scenes/Game/NavMesh.asset
 - Assets/LevelPieces/OfficeBuilding/Level.prefab
 Dependencies:
 - D:/GitHub/FPSProject/AssetBundles/Windows/vgf_textures_sprites

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1394528150
+CRC: 94169407
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: eb21255e4c66ccec46c9517fac6c2039
+    Hash: 03ea91a8be4c1d236d4e94f753c6326e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 4774d6da9b606debf00b5a5d61c4487c
@@ -14,11 +14,7 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/LevelPieces/OfficeBuilding/Materials/WindowAlbedo.png
 - Assets/VGF/Sprites/guard.png
-- Assets/LevelPieces/OfficeBuilding/Materials/WindowSpecular.png
 - Assets/LevelPieces/OfficeBuilding/Materials/WindowNormal.png
 - Assets/VGF/Sprites/health.png
-- Assets/LevelPieces/OfficeBuilding/Materials/WindowHeight.png
-- Assets/LevelPieces/brick.jpg
 Dependencies: []

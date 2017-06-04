@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4077450864
+CRC: 3950237951
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 21ab636463e7808e8e58c42c2d5f3ab2
+    Hash: 1df169f476ff2abf5d4bcd1d622b1c40
   TypeTreeHash:
     serializedVersion: 2
     Hash: 31d6cfe0d16ae931b73c59d7e0c089c0
@@ -14,6 +14,5 @@ Assets:
 Dependencies:
 - D:/GitHub/FPSProject/AssetBundles/Windows/vgf_environment
 - D:/GitHub/FPSProject/AssetBundles/Windows/vgf_textures_sprites
-- D:/GitHub/FPSProject/AssetBundles/Windows/vgf_lightmaps
 - D:/GitHub/FPSProject/AssetBundles/Windows/vgf_prefab
 - D:/GitHub/FPSProject/AssetBundles/Windows/vgf_music

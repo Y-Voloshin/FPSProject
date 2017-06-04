@@ -153,10 +153,8 @@ namespace AssetBundles
 			}
 			else
 			{
-                //                AssetBundleManager.SetSourceAssetBundleURL(Application.dataPath + "AssetBundles/Windows" + "/");
-                AssetBundleManager.SetSourceAssetBundleURL(Application.dataPath + "/AssetBundles" + "/");
-                //AssetBundleManager.SetSourceAssetBundleURL(url);
-            }
+				AssetBundleManager.SetSourceAssetBundleURL(url);
+			}
 		}
 		
 		// Get loaded AssetBundle, only return vaild object when all the dependencies are downloaded successfully.
